@@ -1,4 +1,3 @@
-#include <src/ringbuffer.h>
 #include <stddef.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -16,6 +15,7 @@
 #include <unistd.h>
 #endif
 
+#include <src/ringbuffer.h>
 #include <../../../github.com/vizidrix/libbenchmark/src/benchmark.h>
 #include <../../../github.com/vizidrix/libbenchmark/src/benchmark.c>
 
