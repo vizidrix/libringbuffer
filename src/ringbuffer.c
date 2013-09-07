@@ -15,10 +15,9 @@ rb_init(rb_ringbuffer ** buffer_ptr, uint64_t ring_size, uint64_t buffer_size) {
 	/* Normalize the ring size into a 2s complement */
 	ring_size = round_up_pow_2_uint64_t(ring_size);
 	/* Allocate the buffer struct and room for the buffer */
-	//*buffer_ptr = malloc(sizeof(rb_ringbuffer));
+	/*buffer_ptr = malloc(sizeof(rb_ringbuffer));*/
 	*buffer_ptr = malloc
 		(sizeof(rb_ringbuffer) + 
-		//(sizeof(char*) * ring_size) + 
 		(sizeof(char) * (ring_size * buffer_size)));
 
 	if(!*buffer_ptr) {
