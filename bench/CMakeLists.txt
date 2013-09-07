@@ -13,7 +13,19 @@ set(TITLE bench_c)
 set(BUILD_SHARED_LIBS FALSE)
 set(CMAKE_EXE_LINKER_FLGAS '-static')
 
-set( CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -g -pthread -D_REENTRANT -fPIC" )
+IF(${CMAKE_SYSTEM_NAME} MATCHES "Darwin") # Mac OS X
+
+set( CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -O3 -pthread -D_REENTRANT -fPIC" )
+
+ENDIF(${CMAKE_SYSTEM_NAME} MATCHES "Darwin")
+
+IF(${CMAKE_SYSTEM_NAME} MATCHES "Linux") # Linux
+
+set( CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -O3 -pthread -lrt -D_REENTRANT -fPIC" )
+
+ENDIF(${CMAKE_SYSTEM_NAME} MATCHES "Linux")
+
+#set( CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -g -pthread -D_REENTRANT -fPIC" )
 
 set(SOURCES bench.c)
 
