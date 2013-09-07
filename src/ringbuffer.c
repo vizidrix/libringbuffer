@@ -1,10 +1,6 @@
 #include <stdlib.h>
 #include <stdint.h>
 #include <stdio.h>
-/*#include <assert.h>
-#include <time.h>*/
-/*#include <errno.h>
-#include <sched.h>*/
 #include <inttypes.h>
 
 #include "ringbuffer.h"
@@ -12,10 +8,11 @@
 
 int
 rb_init(rb_ringbuffer ** buffer_ptr, uint64_t ring_size, uint64_t buffer_size) {
+	uint64_t i, j;
+
 	/* Normalize the ring size into a 2s complement */
 	ring_size = round_up_pow_2_uint64_t(ring_size);
 	/* Allocate the buffer struct and room for the buffer */
-	/*buffer_ptr = malloc(sizeof(rb_ringbuffer));*/
 	*buffer_ptr = malloc
 		(sizeof(rb_ringbuffer) + 
 		(sizeof(char) * (ring_size * buffer_size)));
@@ -32,30 +29,11 @@ rb_init(rb_ringbuffer ** buffer_ptr, uint64_t ring_size, uint64_t buffer_size) {
 	(*buffer_ptr)->read_tail = 0;
 	(*buffer_ptr)->entries = (char*)*buffer_ptr+sizeof(rb_ringbuffer);
 
-	uint64_t i, j;
 	for(i = 0; i < (*buffer_ptr)->ring_size; i++) {
 		for(j = 0; j < (*buffer_ptr)->buffer_size; j++) {
 			(*buffer_ptr)->entries[(i*(*buffer_ptr)->buffer_size) + j] = i;
 		}
 	}
-
-	/*
-	printf("&Size:   \t%p\n", (void *)&(*buffer_ptr)->ring_size);
-	printf("&Mask:   \t%p\n", (void *)&(*buffer_ptr)->ring_mask);
-	printf("&Buffer: \t%p\n", (void *)&(*buffer_ptr)->buffer_size);
-	printf("&Write H:\t%p\n", (void *)&(*buffer_ptr)->write_head);
-	printf("&Read  H:\t%p\n", (void *)&(*buffer_ptr)->read_head);
-	printf("&Read  T:\t%p\n", (void *)&(*buffer_ptr)->read_tail);
-	printf("&Entries:\t%p\n", (void *)&(*buffer_ptr)->entries);
-
-	printf("Size:   \t%p\n", (void *)(*buffer_ptr)->ring_size);
-	printf("Mask:   \t%p\n", (void *)(*buffer_ptr)->ring_mask);
-	printf("Buffer: \t%p\n", (void *)(*buffer_ptr)->buffer_size);
-	printf("Write H:\t%p\n", (void *)(*buffer_ptr)->write_head);
-	printf("Read  H:\t%p\n", (void *)(*buffer_ptr)->read_head);
-	printf("Read  T:\t%p\n", (void *)(*buffer_ptr)->read_tail);
-	printf("Entries:\t%p\n", (void *)(*buffer_ptr)->entries);
-	*/
 
 	return RB_SUCCESS;
 }

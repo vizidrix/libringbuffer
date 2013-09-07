@@ -4,16 +4,9 @@
 #ifdef __cplusplus
 extern "C" {
 #endif	
-/*
-#include <stdarg.h>
-#include <stdlib.h>
 
-#include <stdio.h>
-#include <time.h>
-*/
 #include <stdint.h>
 #include "lockfree_shared.h"
-
 
 typedef struct rb_ringbuffer {
 	uint64_t			ring_size;								/** < Number of slots allocated per the rules above */
