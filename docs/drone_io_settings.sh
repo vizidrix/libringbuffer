@@ -13,7 +13,7 @@ popd
 
 echo "Getting source for libbenchmark"
 
-go get github.com/vizidrix/libbenchmark
+git clone git://github.com/vizidrix/libbenchmark.git /home/ubuntu/src/github.com/vizidrix/libbenchmark
 
 cmake -DCMAKE_BUILD_TYPE=Release ./
 make
