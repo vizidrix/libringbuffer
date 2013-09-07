@@ -10,3 +10,4 @@ INSTALL( FILES ${LIBCMDLINE_HEADERS} DESTINATION include)
 
 add_library(${TITLE} STATIC ${SOURCES})
 INSTALL( TARGETS ${TITLE} DESTINATION lib )
+#target_link_libraries( ${TITLE} benchmark)

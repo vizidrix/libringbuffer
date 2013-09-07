@@ -1,3 +1,4 @@
+#set(TITLE root)
 cmake_minimum_required(VERSION 2.6)
 
 project(LIBRINGBUFFER)
@@ -11,12 +12,11 @@ set(EXECUTABLE_OUTPUT_PATH         "${LIBRINGBUFFER_BUILD_ROOT}/bin" )
 
 set(CMAKE_C_FLAGS   "${CMAKE_C_FLAGS} -pedantic-errors -Wall -pedantic -Wextra")
 
-add_library(benchmark STATIC IMPORTED)
-set_property(TARGET benchmark PROPERTY IMPORTED_LOCATION ${CMAKE_CURRENT_SOURCE_DIR}/includes/libbenchmark.a)
+#add_library(benchmark STATIC IMPORTED)
+#set_property(TARGET benchmark PROPERTY IMPORTED_LOCATION ${CMAKE_CURRENT_SOURCE_DIR}/includes/libbenchmark.a)
 
 include_directories(${LIBRINGBUFFER_SRC_ROOT})
 add_subdirectory(src)
-#add_subdirectory(includes)
 add_subdirectory(bench)
 add_subdirectory(example)
 
@@ -29,7 +29,7 @@ else(GTEST_FOUND AND Threads_FOUND)
     message(STATUS "No gtest or pthreads found - test not build")
 endif(GTEST_FOUND AND Threads_FOUND)
 
-TARGET_LINK_LIBRARIES(bench_c benchmark)
+#target_link_libraries( ${TITLE} benchmark )
 
 # uninstall target
 configure_file(

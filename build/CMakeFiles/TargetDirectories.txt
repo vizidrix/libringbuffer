@@ -1,5 +1,0 @@
-/c/vizidrix/src/github.com/vizidrix/libringbuffer/build/bench/CMakeFiles/bench_c.dir
-/c/vizidrix/src/github.com/vizidrix/libringbuffer/build/example/CMakeFiles/example_c.dir
-/c/vizidrix/src/github.com/vizidrix/libringbuffer/build/test/CMakeFiles/libringbuffer_test.dir
-/c/vizidrix/src/github.com/vizidrix/libringbuffer/build/src/CMakeFiles/ringbuffer.dir
-/c/vizidrix/src/github.com/vizidrix/libringbuffer/build/CMakeFiles/uninstall.dir

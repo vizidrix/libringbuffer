@@ -1,2 +1,0 @@
-/usr/bin/ar cr ../lib/libringbuffer.a  CMakeFiles/ringbuffer.dir/ringbuffer.c.o
-/usr/bin/ranlib ../lib/libringbuffer.a
