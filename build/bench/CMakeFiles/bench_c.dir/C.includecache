@@ -1,0 +1,34 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+../src/lockfree_shared.h
+
+../src/ringbuffer.h
+stdarg.h
+-
+stdlib.h
+-
+stdio.h
+-
+time.h
+-
+stdint.h
+-
+lockfree_shared.h
+../src/lockfree_shared.h
+
+/c/vizidrix/src/github.com/vizidrix/libringbuffer/bench/bench.c
+src/ringbuffer.h
+-
+stddef.h
+-
+stdio.h
+-
+libbenchmark.h
+-
+
