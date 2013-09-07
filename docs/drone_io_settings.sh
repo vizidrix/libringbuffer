@@ -11,6 +11,9 @@ sudo cp -r include/gtest/* /usr/include/gtest
 popd
 popd
 
+echo "Getting source for libbenchmark"
+
+go get github.com/vizidrix/libbenchmark
 
 cmake -DCMAKE_BUILD_TYPE=Release ./
 make
