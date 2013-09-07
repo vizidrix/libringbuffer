@@ -1,6 +1,21 @@
 #include <src/ringbuffer.h>
 #include <stddef.h>
 #include <stdio.h>
+#include <stdlib.h>
+#include <stdint.h>
+#include <time.h>
+#include <sys/time.h>
+#include <locale.h>
+
+
+#ifdef __MACH__
+#include <mach/clock.h>
+#include <mach/mach.h>
+#include <mach/mach_time.h>
+#else
+#include <unistd.h>
+#endif
+
 #include <../../../github.com/vizidrix/libbenchmark/src/benchmark.h>
 #include <../../../github.com/vizidrix/libbenchmark/src/benchmark.c>
 
