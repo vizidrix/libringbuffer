@@ -48,7 +48,7 @@ rb_free(rb_ringbuffer ** buffer_ptr) {
 
 int
 rb_get(rb_ringbuffer * buffer, char ** entry, uint64_t seq_num) {
-	*entry = &buffer->entries[(seq_num & buffer->ring_size)*buffer->buffer_size];
+	*entry = &buffer->entries[(seq_num & buffer->ring_mask)*buffer->buffer_size];
 	return RB_SUCCESS;
 }
 
